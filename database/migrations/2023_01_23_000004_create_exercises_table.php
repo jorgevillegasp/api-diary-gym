@@ -13,12 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('muscles', function (Blueprint $table) {
+        Schema::create('exercises', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('status',1);
-            $table->string('img',255);
+            $table->bigInteger('serie_id')->unsigned()->nullable();
+            $table->string('name', 45)->nullable();
+            $table->string('img')->nullable();
             $table->timestamps();
+
+            $table->foreign('serie_id')
+                ->references('id')->on('series')
+                ->onDelete('set null')
+                ->onUpdate('cascade');
         });
     }
 
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('muscles');
+        Schema::dropIfExists('exercises');
     }
 };

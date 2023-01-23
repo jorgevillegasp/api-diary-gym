@@ -13,13 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rols', function (Blueprint $table) {
+        Schema::create('routines', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('descripcion')->nullable();
-            $table->string('status',1);
+            $table->string("name", 45);
+            $table->string("description", 45)->nullable();
+            $table->boolean("complete");
+            $table->string("status",1);
             $table->timestamps();
         });
+
+
     }
 
     /**
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rols');
+        Schema::dropIfExists('routines');
     }
 };
