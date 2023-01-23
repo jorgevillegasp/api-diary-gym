@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->bigIncrements('rol_id');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -24,6 +25,10 @@ return new class extends Migration
             $table->date('birth_date');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('rol_id')->references('id')->on('rols')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
