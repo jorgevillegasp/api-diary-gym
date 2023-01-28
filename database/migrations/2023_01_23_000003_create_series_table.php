@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('series', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('routine_id')->unsigned()->nullable();
+            $table->unsignedBigInteger('routine_id')->nullable();
             $table->integer('amount')->nullable();
             $table->boolean('completed')->nullable();
             $table->timestamps();

@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('routine_user', function (Blueprint $table) {
-            $table->bigInteger('rutine_id');
-            $table->bigInteger('user_id');
+            $table->unsignedBigInteger('rutine_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
 
             // $table->index(["user_id"], 'fk_users_routines_User_idx');
             // $table->index(["rutine_id"], 'fk_users_routines_routines1_idx');

@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('exercises_muscle', function (Blueprint $table) {
-            $table->bigInteger('muscle_id');
-            $table->bigInteger('exercise_id');
+            $table->unsignedBigInteger('muscle_id')->nullable();
+            $table->unsignedBigInteger('exercise_id')->nullable();
 
 
             // $table->index(["muscle_id"], 'fk_exercises_muscle_muscles1_idx');

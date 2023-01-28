@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('repetitions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('serie_id');
+            $table->unsignedBigInteger('serie_id')->nullable();
             $table->integer('amount')->nullable();
             $table->decimal('weight', 3, 1)->nullable();
             $table->boolean('completed')->nullable();
             $table->timestamps();
 
-            $table->foreign('serie_id', 'fk_repetitions_series1_idx')
+            $table->foreign('serie_id')
                 ->references('id')->on('series')
                 ->onDelete('set null')
                 ->onUpdate('cascade');

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('exercises', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('serie_id')->unsigned()->nullable();
+            $table->unsignedBigInteger('serie_id')->nullable();
             $table->string('name', 45)->nullable();
             $table->string('img')->nullable();
             $table->timestamps();

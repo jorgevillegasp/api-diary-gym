@@ -14,20 +14,20 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->bigIncrements('rol_id');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('rol_id')->nullable();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->decimal('stature',3,1);
-            $table->float('weight',3,1);
-            $table->date('birth_date');
+            $table->decimal('stature',3,1)->nullable();;
+            $table->float('weight',3,1)->nullable();;
+            $table->date('birth_date')->nullable();;
             $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('rol_id')->references('id')->on('rols')
-                ->onDelete('cascade')
+                ->onDelete('set null')
                 ->onUpdate('cascade');
         });
     }
