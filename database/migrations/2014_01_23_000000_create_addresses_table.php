@@ -13,16 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('routines', function (Blueprint $table) {
+        Schema::create('addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("name", 45);
-            $table->string("description", 255)->nullable();
-            $table->boolean("complete");
+            $table->string('name', 100)->nullable();
+            $table->unsignedBigInteger('city_id')->nullable();
             $table->timestamps();
-            $table->string("status",1);
+            $table->string('status',1);
+
+            $table->foreign('city_id')
+                ->references('id')->on('cities')
+                ->onDelete('set null')
+                ->onUpdate('cascade');
         });
-
-
     }
 
     /**
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('routines');
+        Schema::dropIfExists('addresses');
     }
 };

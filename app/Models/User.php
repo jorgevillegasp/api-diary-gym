@@ -43,7 +43,24 @@ class User extends Authenticatable
     ];
 
 
-    public function rol(){
+    public function rol()
+    {
         return $this->hasOne(Rol::class);
+    }
+
+    /**
+     * Relacion una a uno polimorfica
+     *
+     * Esta función publica una imagen y devuelve una relación
+     * de uno a uno entre la imagen y el modelo actual utilizando
+     * el método morphOne. El primer argumento es el nombre
+     * del modelo de imagen (en este caso, "image") y el segundo
+     * argumento es una cadena que especifica el tipo de relación ("imageable").
+     *
+     * @return morphOne
+     */
+    public function image()
+    {
+        return $this->morphOne(image::class, 'imageable');
     }
 }

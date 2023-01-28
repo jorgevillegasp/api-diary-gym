@@ -13,8 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rols', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('images', function (Blueprint $table) {
+            $table->string('url');
+
+            //estas dos seran llaves compuestas
+            $table->unsignedBigInteger('imageable_id')->nullable();
+            $table->string('imageable_type')->nullable();
+
+            //Crear las llaves primarias compuestas
+            $table->primary(['imageable_id','imageable_type']);
+
             $table->timestamps();
         });
     }
@@ -26,7 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-
-        Schema::dropIfExists('rols');
+        Schema::dropIfExists('images');
     }
 };

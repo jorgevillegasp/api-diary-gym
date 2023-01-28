@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name', 45)->nullable();
             $table->string('img')->nullable();
             $table->timestamps();
+            $table->string("status",1);
 
             $table->foreign('serie_id')
                 ->references('id')->on('series')

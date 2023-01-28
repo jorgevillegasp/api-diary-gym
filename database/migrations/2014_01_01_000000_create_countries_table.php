@@ -13,16 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('routines', function (Blueprint $table) {
+        Schema::create('countries', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("name", 45);
-            $table->string("description", 255)->nullable();
-            $table->boolean("complete");
+            $table->string('name',45);
             $table->timestamps();
-            $table->string("status",1);
+            $table->string('status',1);
         });
-
-
     }
 
     /**
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('routines');
+        Schema::dropIfExists('countries');
     }
 };

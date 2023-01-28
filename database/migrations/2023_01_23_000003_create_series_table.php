@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('amount')->nullable();
             $table->boolean('completed')->nullable();
             $table->timestamps();
+            $table->string("status",1);
 
             $table->foreign('routine_id')
                 ->references('id')->on('routines')

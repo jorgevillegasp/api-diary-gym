@@ -15,9 +15,8 @@ return new class extends Migration
     {
         Schema::create('muscles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 45);
-            $table->string('img')->nullable();
             $table->timestamps();
+            $table->string("status",1);
         });
     }
 

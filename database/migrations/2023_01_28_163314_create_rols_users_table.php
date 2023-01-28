@@ -13,17 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('routine_user', function (Blueprint $table) {
-            $table->unsignedBigInteger('rutine_id')->nullable();
+        Schema::create('rols_users', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('rols_id')->nullable();
 
-            $table->foreign('user_id', 'fk_users_routines_User_idx')
+            $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onDelete('set null')
                 ->onUpdate('cascade');
 
-            $table->foreign('rutine_id', 'fk_users_routines_routines1_idx')
-                ->references('id')->on('routines')
+            $table->foreign('rols_id')
+                ->references('id')->on('rols')
                 ->onDelete('set null')
                 ->onUpdate('cascade');
         });
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('routine_user');
+        Schema::dropIfExists('rols_users');
     }
 };
