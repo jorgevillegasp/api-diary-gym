@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\UserController as UserV1;
 use App\Http\Controllers\Api\V2\UserController as UserV2;
 
+//V1
 Route::apiResource('v1/users', UserV1::class)
     ->only(['index','show','destroy']);
 
+//v2
 Route::apiResource('v2/users', UserV2::class)
     ->only(['index','show','destroy']);
 
