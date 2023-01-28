@@ -17,7 +17,6 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('serie_id')->nullable();
             $table->string('name', 45)->nullable();
-            $table->string('img')->nullable();
             $table->timestamps();
             $table->string("status",1);
 

@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('name',45);
             $table->string('email')->unique();
             $table->string('password',45);
-            $table->float('weight',3,1)->nullable();;
-            $table->decimal('stature',3,1)->nullable();;
-            $table->date('birth_date')->nullable();;
+            $table->double('weight',5,2)->nullable();
+            $table->double('stature',5,2)->nullable();
+            $table->date('birth_date')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
