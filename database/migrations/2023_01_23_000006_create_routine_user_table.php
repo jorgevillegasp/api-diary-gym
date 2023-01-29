@@ -14,15 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('routine_user', function (Blueprint $table) {
-            $table->unsignedBigInteger('rutine_id')->nullable();
+            $table->unsignedBigInteger('routine_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
 
-            $table->foreign('user_id', 'fk_users_routines_User_idx')
+            $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onDelete('set null')
                 ->onUpdate('cascade');
 
-            $table->foreign('rutine_id', 'fk_users_routines_routines1_idx')
+            $table->foreign('routine_id')
                 ->references('id')->on('routines')
                 ->onDelete('set null')
                 ->onUpdate('cascade');

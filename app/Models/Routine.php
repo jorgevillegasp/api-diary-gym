@@ -19,6 +19,9 @@ class Routine extends Model
     }
 
     //? Relaciones de muchos a muchos
+    //Para mas informacion visita la documentacion
+    //https://laravel.com/docs/9.x/eloquent-relationships#many-to-many
+
     /**
      * Esta función establece una relación de muchos
      * a muchos entre la clase actual (Routine) y la clase User
