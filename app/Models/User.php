@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Address;
-use Illuminate\Routing\Events\Routing;
 
 class User extends Authenticatable
 {
@@ -21,9 +20,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',     // Nombre del usuario
-        'email',    // Correo electrónico del usuario
-        'password', // Contraseña del usuario
+        'name',         // Nombre
+        'email',        // Correo electrónico
+        'password',     // Contraseña
+        'weight',       //Peso
+        'stature',      //Estatura
+        'birth_date',   //Fecha Nacimiento
+        'status',       //estado
     ];
 
     /**
@@ -35,7 +38,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',         // Contraseña del usuario
-        'remember_token', // Token de recuerdo para mantener la sesión iniciada
+        'remember_token',   // Token de recuerdo para mantener la sesión iniciada
     ];
 
     /**
@@ -60,11 +63,6 @@ class User extends Authenticatable
         return $this->belongsTo(Address::class);
     }
 
-    //TODO: Relaciones de muchos a muchos
-    public function roles(){
-        return $this->belongsToMany(Role::class);
-    }
-
     /**
      * Esta función establece una relación polimorfica
      * entre la clase User y la clase Image
@@ -76,5 +74,24 @@ class User extends Authenticatable
         // Se utiliza el método morphOne para establecer una relación
         //polimórfica entre el modelo y la imagen
         return $this->morphOne(image::class, 'imageable');
+    }
+
+    //? Relaciones de muchos a muchos
+    /**
+     * Esta función establece la relación entre el modelo User y el modelo Role.
+     *
+     * Relacion de muchos a muchos
+     */
+    public function roles(){
+        return $this->belongsToMany(Role::class);
+    }
+
+    /**
+     * Esta función establece la relación entre el modelo User y la tabla de rutinas
+     *
+     * Relacion de muchos a muchos
+     */
+    public function routines(){
+        return $this->belongsToMany(Routine::class);
     }
 }
