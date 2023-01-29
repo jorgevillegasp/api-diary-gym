@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Serie extends Model
+class Repetition extends Model
 {
     use HasFactory;
 
@@ -21,13 +21,4 @@ class Serie extends Model
     }
 
 
-    /**
-     * Esta función devuelve una colección de instancias de la clase
-     * Repetition asociadas a la instancia actual (Serie).
-     *
-     * Relacion de uno a muchos
-     */
-    public function series(){
-        return $this->hasMany(Repetition::class);
-    }
 }
