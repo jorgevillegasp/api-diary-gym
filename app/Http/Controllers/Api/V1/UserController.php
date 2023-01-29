@@ -32,18 +32,21 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Muestra el recurso especificado.
      *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
     {
+        //Le mandamos el recurso encontrado a mi classe
+        // Resource que se encarga de modificar
+        // el como van a ir estructurado los datos
         return new UserResource($user);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualice el recurso especificado en el almacenamiento.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\User  $user
@@ -55,13 +58,16 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina el recurso especificado del almacenamiento.
      *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
     {
+        //hay que hacer eleiminacion logica
+        //queda pendiente, por pruebas
+
         // response()->json
         $user->delete();
         return response()->json([

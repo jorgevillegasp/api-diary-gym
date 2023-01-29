@@ -14,12 +14,15 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        //Validamos los campos
         $this->validateLogin($request);
 
-        //  login true
+        //  Validamos si el usuario existe
+        //  de ser asi creamos la respuesta
+        //  con el token dentro de ella
         if(Auth::attempt($request->only('email','password'))){
             return response()->json([
-                'token' => $request->user()->createToken("auth_token")->plainTextToken,
+                'token' => $request->user()->createToken($request->user()->name)->plainTextToken,
                 'message' => 'Success'
             ]);
         }

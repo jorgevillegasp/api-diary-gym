@@ -13,17 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rols_users', function (Blueprint $table) {
+        Schema::create('role_user', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('rols_id')->nullable();
+            $table->unsignedBigInteger('role_id')->nullable();
+
+            //$table->primary(['user_id','role_id']);
 
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onDelete('set null')
                 ->onUpdate('cascade');
 
-            $table->foreign('rols_id')
-                ->references('id')->on('rols')
+            $table->foreign('role_id')
+                ->references('id')->on('roles')
                 ->onDelete('set null')
                 ->onUpdate('cascade');
         });
@@ -36,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rols_users');
+        Schema::dropIfExists('role_user');
     }
 };
