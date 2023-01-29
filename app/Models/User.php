@@ -67,12 +67,14 @@ class User extends Authenticatable
      * Esta función establece una relación polimorfica
      * entre la clase User y la clase Image
      *
+     * Relacion uno a uno polimorfica
+     *
      * @return morphOne
      */
     public function image()
     {
         // Se utiliza el método morphOne para establecer una relación
-        //polimórfica entre el modelo y la imagen
+        // polimórfica entre el modelo y la imagen
         return $this->morphOne(image::class, 'imageable');
     }
 
