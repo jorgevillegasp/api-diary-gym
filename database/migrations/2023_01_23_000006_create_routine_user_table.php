@@ -14,6 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('routine_user', function (Blueprint $table) {
+            //TODO: Resolver: que no se repitan las uniones
+            // Es decir que no haya [1-1] [1-2] [1-1]
+            //Posible solucion. pero no nos deja poner en null
+            //$table->primary(['routine_id','user_id']);
             $table->unsignedBigInteger('routine_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
 

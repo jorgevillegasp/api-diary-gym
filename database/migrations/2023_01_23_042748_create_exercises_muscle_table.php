@@ -13,7 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('exercises_muscle', function (Blueprint $table) {
+        Schema::create('exercise_muscle', function (Blueprint $table) {
+            //TODO: Resolver: que no se repitan las uniones
+            // Es decir que no haya 1-1 1-2 1-1
+            //Posible solucion. pero no nos deja poner en null
+            //$table->primary(['muscle_id','exercise_id']);
             $table->unsignedBigInteger('muscle_id')->nullable();
             $table->unsignedBigInteger('exercise_id')->nullable();
 
@@ -36,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('exercises_muscle');
+        Schema::dropIfExists('exercise_muscle');
     }
 };
