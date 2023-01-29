@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('address_id')->nullable();
             $table->string('name',45);
             $table->string('email')->unique();
-            $table->string('password',45);
+            $table->string('password');
             $table->double('weight',5,2)->nullable();
             $table->double('stature',5,2)->nullable();
             $table->date('birth_date')->nullable();
