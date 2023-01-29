@@ -9,6 +9,15 @@ class Routine extends Model
 {
     use HasFactory;
 
+    /**
+     * Esta función establece la relación entre un usuario y las series que ha creado
+     *
+     * Relacion de uno a muchos
+     */
+    public function series(){
+        return $this->hasMany(Serie::class);
+    }
+
     //? Relaciones de muchos a muchos
     /**
      * Esta función establece una relación de muchos
