@@ -10,6 +10,16 @@ class Muscle extends Model
     use HasFactory;
 
     /**
+     * Esta función establece la relación entre el modelo actual
+     * Muscle y el modelo Exercise.
+     *
+     * Relacion de muchos a muchos
+     */
+    public function exercise(){
+        return $this->belongsToMany(Exercise::class);
+    }
+
+    /**
      * Relacion una a uno polimorfica
      *
      * Esta función publica una imagen y devuelve una relación
@@ -20,7 +30,8 @@ class Muscle extends Model
      *
      * @return morphOne
      */
-   public function image(){
-       return $this->morphOne(image::class,'imageable');
-   }
+    public function image()
+    {
+        return $this->morphOne(image::class, 'imageable');
+    }
 }

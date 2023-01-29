@@ -20,4 +20,14 @@ class Exercise extends Model
         return $this->belongsTo(Routine::class);
     }
 
+    /**
+     * Esta función establece la relación entre el modelo actual
+     * Exercise y el modelo Muscle.
+     *
+     * Relacion de muchos a muchos
+     */
+    public function muscles(){
+        return $this->belongsToMany(Muscle::class);
+    }
+
 }
