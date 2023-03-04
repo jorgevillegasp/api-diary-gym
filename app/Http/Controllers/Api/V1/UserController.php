@@ -65,7 +65,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //hay que hacer eleiminacion logica
+        //hay que hacer eliminacion logica
         //queda pendiente, por pruebas
 
         // response()->json
