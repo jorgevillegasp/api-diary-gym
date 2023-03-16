@@ -23,7 +23,7 @@ Laravel es accesible, potente y proporciona las herramientas necesarias para apl
 
 ## Requisitos
 
-El proyecto requiere de las siguientes dependencias:
+El proyecto requiere de las siguientes paquetes:
 
 - [MySql](https://www.mysql.com/downloads/).
 - [php](https://www.php.net/downloads.php) 8.1.0 o superior.
