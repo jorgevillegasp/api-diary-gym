@@ -7,60 +7,121 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Acerca de  Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Laravel es un marco de aplicación web con una sintaxis expresiva y elegante. Creemos que el desarrollo debe ser una experiencia placentera y creativa para ser realmente satisfactoria. Laravel elimina el dolor del desarrollo al facilitar las tareas comunes utilizadas en muchos proyectos web, como:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Motor de enrutamiento simple y rápido](https://laravel.com/docs/routing).
+- [Potente contenedor de inyección de dependencia](https://laravel.com/docs/container).
+- Múltiples back-ends para [sesiones ](https://laravel.com/docs/session) y almacenamiento [en caché.](https://laravel.com/docs/cache) .
+- [Base de datos ORM](https://laravel.com/docs/eloquent) expresiva e intuitiva ..
+- [Migraciones de esquemas](https://laravel.com/docs/migrations)independientes de la base de datos.
+- [Robusto procesamiento de trabajos en segundo plano](https://laravel.com/docs/queues).
+- [Transmisión de eventos en tiempo real](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Laravel es accesible, potente y proporciona las herramientas necesarias para aplicaciones grandes y sólidas.
 
-## Learning Laravel
+## Requisitos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+El proyecto requiere de las siguientes dependencias:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- [MySql](https://www.mysql.com/downloads/).
+- [php](https://www.php.net/downloads.php) 8.1.0 o superior.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- [Composer](https://getcomposer.org/) 2.2.0 o superior.
 
-## Laravel Sponsors
+Puede instalar los paquetes ya intalados que trae LARAGON o XAMPP
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Se recomienda utilizar Laragon ya que es mas facil de actualizar php y mysql de ser necesario.
 
-### Premium Partners
+- [Laragon](https://laragon.org/download/index.html).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- [XAMPP](https://www.apachefriends.org/es/download.html).
 
-## Contributing
+## Ejecucion de comando
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Una vez clonado el proyecto tiene que seguir los siguientes pasos.
 
-## Code of Conduct
+*  Paso 1. Instalar dependencias con Composer
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Es necesario instalar todas las dependencias para ello ubicate en la carpeta raíz deL proyecto, abre una terminal de comandos y ejecuta la instrucción:
 
-## Security Vulnerabilities
+```bash
+  composer install
+```
+* Paso 2. Crear un nuevo archivo .env
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Cuando se clona con Git un repositorio de Laravel por seguridad y de manera predeterminada el archivo .env no se agrega al proyecto es por eso que al clonar un proyecto es necesario generar un archivo nuevo. Escribe en la terminal:
+luego copie y pege el .env.example y quitele el .example quedando solo .env
+
+```bash
+    p .env.example .env
+```
+
+Este comando creará una copia del archivo .env.example llamando al archivo nuevo .env, es necesario que le agregues la información de la base de datos que creaste en el punto anterior como nombre, contraseña, usuario, etc., también si tu proyecto necesita alguna variable global es necesario agregarla en este archivo.
+
+* Paso 3. Generar una key nueva
+
+Desde la terminal de comandos ejecuta la instrucción:
+
+```bash
+    php artisan key:generate
+```
+
+y se creará una clave única que es necesaria para que la app funcione correctamente.
+
+* Paso 4. Correr las migraciones
+
+Para correr las migraciones desde la terminal de comandos ejecuta la siguiente instrucción:
+
+```bash
+    php artisan migrate
+```
+
+Al correr este comando todas las tablas que requiere tu aplicación en Laravel se crearán en la base de datos.
+
+* Paso 6. Agregar los seed.
+
+Este paso es solamente para los proyectos los cuales tengan seeds y quieran correrlos. Desde la terminal y ejecuta el comando:
+
+```bash
+    php artisan db:seed
+```
+
+De esta manera la base de datos se llenará con toda la información que se encuentre en los seed.
+
+¡Y listo! Has clonado el proyecto Laravel de manera fácil y rápida.
+
 
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Observaciones
+
+Si te sale un error al ejecutar "composer install" sobre PHP
+
+```bash
+Failed to download guzzlehttp/psr7 from dist: The zip extension and unzip/7z commands are both missing, skipping.
+The php.ini used by your command-line PHP is: C:\laragon\bin\php\php-8.2.4-Win32-vs16-x64\php.ini
+```
+
+Este error se produce cuando falta la extensión zip en su instalación de PHP. Para solucionarlo, puede seguir los siguientes pasos:
+
+
+
+* Abra el archivo php.ini mencionado en el mensaje de error.
+
+
+* Busque la línea que comienza con ";extension=zip" y elimine el punto y coma al principio de la línea para descomentar la extensión.
+
+
+* Guarde y cierre el archivo php.ini.
+
+
+* Reinicie su servidor web y ejecute el comando "composer install" nuevamente.
+
+
+Si sigue recibiendo errores, también puede intentar instalar manualmente la extensión zip en su instalación de PHP. Puede encontrar información sobre cómo hacerlo en la documentación oficial de PHP.
+
