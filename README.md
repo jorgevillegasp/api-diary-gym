@@ -55,7 +55,7 @@ Cuando se clona con Git un repositorio de Laravel por seguridad y de manera pred
 luego copie y pege el .env.example y quitele el .example quedando solo .env
 
 ```bash
-    p .env.example .env
+    cp .env.example .env
 ```
 
 Este comando creará una copia del archivo .env.example llamando al archivo nuevo .env, es necesario que le agregues la información de la base de datos que creaste en el punto anterior como nombre, contraseña, usuario, etc., también si tu proyecto necesita alguna variable global es necesario agregarla en este archivo.
