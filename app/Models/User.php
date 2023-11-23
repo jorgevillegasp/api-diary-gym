@@ -57,7 +57,6 @@ class User extends Authenticatable
      *
      * Relacion uno a muchos (inversa)
      *
-     *  @return hasMany
      */
     public function address(){
         return $this->belongsTo(Address::class);
@@ -69,13 +68,12 @@ class User extends Authenticatable
      *
      * Relacion uno a uno polimorfica
      *
-     * @return morphOne
      */
     public function image()
     {
         // Se utiliza el método morphOne para establecer una relación
         // polimórfica entre el modelo y la imagen
-        return $this->morphOne(image::class, 'imageable');
+        return $this->morphOne(Image::class, 'imageable');
     }
 
     //? Relaciones de muchos a muchos

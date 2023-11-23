@@ -10,59 +10,46 @@ use App\Http\Resources\V1\UserResource;
 
 class UserController extends Controller
 {
-    /**
-     * Mostrar una lista del recurso.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return UserResource::collection(User::latest()->paginate());
     }
 
     /**
-     * Almacene un recurso recién creado en el almacenamiento.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        //
+        $userData = $request->all(); // Obtener todos los datos del request
+
+        // Aquí deberías validar y guardar el usuario en tu base de datos
+        $user = User::create($userData);
+
+        // Devolver una respuesta indicando el éxito y, posiblemente, el nuevo recurso creado
+        return response()->json([
+            'message' => 'Usuario creado con éxito',
+            'data' => new UserResource($user) // Opcional: devolver el nuevo usuario creado
+        ], 201); // Código 201 para indicar que se creó un recurso nuevo
     }
 
-    /**
-     * Muestra el recurso especificado.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(User $user)
     {
-        //Le mandamos el recurso encontrado a mi classe
+        //Le mandamos el recurso encontrado a mi clase
         // Resource que se encarga de modificar
         // el como van a ir estructurado los datos
         return new UserResource($user);
     }
 
-    /**
-     * Actualice el recurso especificado en el almacenamiento.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, User $user)
     {
         //
     }
 
-    /**
-     * Elimina el recurso especificado del almacenamiento.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(User $user)
     {
         //hay que hacer eliminacion logica

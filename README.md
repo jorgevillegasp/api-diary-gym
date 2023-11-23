@@ -9,7 +9,7 @@
 
 ## Acerca de  Laravel
 
-Laravel es un marco de aplicación web con una sintaxis expresiva y elegante. Creemos que el desarrollo debe ser una experiencia placentera y creativa para ser realmente satisfactoria. Laravel elimina el dolor del desarrollo al facilitar las tareas comunes utilizadas en muchos proyectos web, como:
+Laravel es un marco de aplicación web con una sintaxis elegante y expresiva. Creemos que el desarrollo debe ser una experiencia agradable y creativa para que sea verdaderamente satisfactorio. Laravel elimina las complicaciones del desarrollo al facilitar las tareas comunes utilizadas en muchos proyectos web, como por ejemplo:
 
 - [Motor de enrutamiento simple y rápido](https://laravel.com/docs/routing).
 - [Potente contenedor de inyección de dependencia](https://laravel.com/docs/container).
@@ -125,3 +125,25 @@ Este error se produce cuando falta la extensión zip en su instalación de PHP. 
 
 Si sigue recibiendo errores, también puede intentar instalar manualmente la extensión zip en su instalación de PHP. Puede encontrar información sobre cómo hacerlo en la documentación oficial de PHP.
 
+
+## Análisis estático con Psalm
+
+[Psalm](https://psalm.dev/) es una herramienta de análisis estático para PHP que ayuda a detectar posibles errores, mejorar la calidad del código y garantizar mejores prácticas de desarrollo.
+
+### Beneficios:
+
+- **Detecta errores temprano:** Identifica errores en el código antes de la ejecución, ayudando a prevenir fallos en tiempo de ejecución.
+
+- **Mejora la calidad del código:** Proporciona sugerencias para limpiar y mejorar el código, reduciendo posibles errores y mejorando la legibilidad.
+
+- **Fomenta buenas prácticas:** Ayuda a seguir estándares de codificación y mejores prácticas para un código más robusto y mantenible.
+
+### Cómo usar:
+
+1. **Instalación:**
+   ```bash
+   composer require --dev vimeo/psalm
+
+2. **Ejecucion:**
+   ```bash
+   ./vendor/bin/psalm

@@ -28,10 +28,10 @@ class Muscle extends Model
      * del modelo de imagen (en este caso, "image") y el segundo
      * argumento es una cadena que especifica el tipo de relación ("imageable").
      *
-     * @return morphOne
+     * @return
      */
     public function image()
     {
-        return $this->morphOne(image::class, 'imageable');
+        return $this->morphOne(Image::class, 'imageable');
     }
 }

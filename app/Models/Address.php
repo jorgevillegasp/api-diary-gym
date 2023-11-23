@@ -29,7 +29,7 @@ class Address extends Model
      *
      * Relacion uno a muchos (inversa)
      *
-     *  @return belongsTo
+     *  @return
      */
     public function city(){
         // Retorna una instancia de la clase City.
